@@ -1,0 +1,20 @@
+server:
+    port: 8761
+
+spring:
+    application:
+        name: discovery-service
+
+eureka:
+    instance:
+        hostname: localhost
+    client:
+# This server is the registry itself, so it must not register with or fetch from itself.
+        register-with-eureka: false
+        fetch-registry: false
+        service-url:
+            defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+    server:
+# Local development only: removes stopped services from the dashboard quickly.
+        enable-self-preservation: false
+        eviction-interval-timer-in-ms: 5000
