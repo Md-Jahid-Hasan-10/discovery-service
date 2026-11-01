@@ -20,7 +20,7 @@ eureka:
         eviction-interval-timer-in-ms: 5000
 management:
     server:
-        port: 18083
+        port: 18761
     endpoints:
         web:
             exposure:
