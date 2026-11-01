@@ -18,3 +18,14 @@ eureka:
 # Local development only: removes stopped services from the dashboard quickly.
         enable-self-preservation: false
         eviction-interval-timer-in-ms: 5000
+management:
+    server:
+        port: 18083
+    endpoints:
+        web:
+            exposure:
+                include: health,info,prometheus
+    metrics:
+        distribution:
+            percentiles-histogram:
+                http.server.requests: true
