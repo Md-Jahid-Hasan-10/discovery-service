@@ -18,14 +18,25 @@ eureka:
 # Local development only: removes stopped services from the dashboard quickly.
         enable-self-preservation: false
         eviction-interval-timer-in-ms: 5000
+
 management:
-    server:
-        port: 18761
-    endpoints:
-        web:
-            exposure:
-                include: health,info,prometheus
-    metrics:
-        distribution:
-            percentiles-histogram:
-                http.server.requests: true
+  server:
+# The other services publish their metrics on 18080-18090. Prometheus runs in
+# a container and scrapes them through host.docker.internal, so the metrics
+# port has to be reachable from outside the loopback interface.
+    port: ${MANAGEMENT_PORT:18761}
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
