@@ -408,3 +408,18 @@ curl -s -o /dev/null -w '%{http_code}\n' http://localhost:8761/
   `spring-cloud-starter-netflix-eureka-server`, `spring-boot-starter-actuator`,
   `micrometer-registry-prometheus`, `spring-boot-starter-test`. Spring Boot 3.5.5, Spring Cloud
   BOM 2025.0.0, Java 17.
+
+# Discovery Service
+
+**Part of the Banking Microservices Project**
+
+Developed and maintained by **Jahid Hasan**
+
+- **Author:** Jahid Hasan
+- **GitHub:** [Md-Jahid-Hasan-10](https://github.com/Md-Jahid-Hasan-10)
+- **Repository:** [discovery-service](https://github.com/Md-Jahid-Hasan-10/discovery-service)
+- **Project:** Banking Microservices
+- **Application Port:** `8761`
+- **Management/Metrics Port:** `18761`
+
+> The Eureka service registry of the banking platform. Every other service registers here, and the API gateway resolves `lb://` route targets against it.
